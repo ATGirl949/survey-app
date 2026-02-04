@@ -1,10 +1,21 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
-import { defineConfig } from '#q-app/wrappers'
+import { Warning } from 'postcss';
 
-export default defineConfig(( ctx ) => {
+const { configure } = require('quasar/wrappers');
+
+module.exports = configure(function (ctx) {
   return {
+    eslint: {
+      // fix: trure,
+      // include = [],
+      // exclude = [],
+      // raw0ptions = [],
+      Warning: true,
+      errors: true,
+    },
+
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
 
@@ -38,10 +49,10 @@ export default defineConfig(( ctx ) => {
       },
 
       vueRouterMode: 'history', // available values: 'hash', 'history'
-           env: {
+      env: {
        SERVER_URL: ctx.dev ? 'http://localhost:3000' : 'http://localhost:3000',
-       CREATOR_NAME: 'Asma',
-       CREATOR_EMAIL: 'henning@candogram.com',
+       CREATOR_NAME: 'Asma Nawaz',
+       CREATOR_EMAIL: 'nawazasma32@gmail.com',
        LINKEDIN: 'https://www.linkedin.com'
      },
      distDir: '../server/public',
@@ -77,11 +88,10 @@ export default defineConfig(( ctx ) => {
         ],
       ],
     },
-   htmlVariables: {
+  htmlVariables: {
      productName: 'BAHS Student Job Survey App',
      productDescription: 'The Bronx Aerospace High School Student Survey App collects job preferences from high school students.'
    },
-
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
     devServer: {
       // https: true,
@@ -103,7 +113,9 @@ export default defineConfig(( ctx ) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Notify'],
+      plugins: [
+        'Notify'
+      ],
     },
 
     // animations: 'all', // --- includes all animations
@@ -199,7 +211,7 @@ export default defineConfig(( ctx ) => {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'test1',
+        appId: 'quasar-project',
       },
     },
 
